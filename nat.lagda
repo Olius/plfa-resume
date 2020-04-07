@@ -1,15 +1,104 @@
 \documentclass{article}
+%\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{csquotes}
+\usepackage{agda}
+\usepackage{amssymb}
+
+\usepackage{newunicodechar}    % Pour \qed.
+\newcommand{\nuc}[2]{\newunicodechar{#1}{\ensuremath{#2}}}
+\nuc{ℕ}{\mathbb N}
+\nuc{≡}{\equiv}
+\nuc{⟨}{\langle}
+\nuc{⟩}{\rangle}
+\nuc{∎}{\blacksquare}
 
 \begin{document}
 
+\section{Naturals}
+
+\subsection{Exercice \texttt{seven}}
+Salut Victor.
+Là on va importer les naturels.
 \begin{code}
-open import Data.Nat
+open import Data.Nat using (ℕ; zero; suc; _+_; _*_)
+\end{code}
+Encore bonjour.
+Voici du code;
+en particulier celui du nombre bien connu \(7\).
+\begin{code}
+sept = suc (suc (suc (suc (suc (suc (suc zero))))))
 \end{code}
 
-Bonjour.  Voici du code.
-
+\subsection{Exercice \texttt{+-example}}
+On importe le bordel pour les égalités propositionnelles.
 \begin{code}
-sept = suc (suc (suc (suc (suc (suc (suc 0))))))
+import Relation.Binary.PropositionalEquality as Eq
+open Eq using (_≡_; refl)
+open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _∎)
+\end{code}
+Maintenant le \enquote{calcul} de $3 + 4$.
+\begin{code}
+_ : 3 + 4 ≡ 7
+_ =
+  begin
+    3 + 4
+  ≡⟨⟩
+    suc 2 + 4
+  ≡⟨⟩
+    suc (2 + 4)
+  ≡⟨⟩
+    suc (suc 1 + 4)
+  ≡⟨⟩
+    suc (suc (1 + 4))
+  ≡⟨⟩
+    suc (suc (suc 0 + 4))
+  ≡⟨⟩
+    suc (suc (suc (0 + 4)))
+  ≡⟨⟩
+    suc (suc (suc 4))
+  ≡⟨⟩
+    7
+  ∎
+\end{code}
+
+\subsection{Exercice \texttt{*-example}}
+La même chose pour la multiplication maintenant.
+\begin{code}
+_ : 3 * 4 ≡ 12
+_ =
+  begin
+    3 * 4
+  ≡⟨⟩
+    suc 2 * 4
+  ≡⟨⟩
+    4 + (2 * 4)
+  ≡⟨⟩
+    4 + (suc 1 * 4)
+  ≡⟨⟩
+    4 + (4 + (1 * 4))
+  ≡⟨⟩
+    4 + (4 + (suc 0 * 4))
+  ≡⟨⟩
+    4 + (4 + (4 + (0 * 4)))
+  ≡⟨⟩
+    4 + (4 + (4 + 0))
+  ≡⟨⟩
+    12
+  ∎
+\end{code}
+
+\subsection{Exercice \texttt{\_\^\_}}
+Et l'exponentiation.
+\begin{code}
+_^_ : ℕ → ℕ → ℕ
+m ^ 0 = 1
+m ^ suc n = m * (m ^ n)
+\end{code}
+Le calcul de \verb|3 ^ 4|.
+\begin{code}
+_ : 3 ^ 4 ≡ 81
+_ = refl
 \end{code}
 
 \end{document}
