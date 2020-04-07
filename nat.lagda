@@ -7,7 +7,7 @@
 
 \usepackage{newunicodechar}    % Pour \qed.
 \newcommand{\nuc}[2]{\newunicodechar{#1}{\ensuremath{#2}}}
-\nuc{ℕ}{\mathbb N}
+\nuc{ℕ}{\Bbb N}
 \nuc{≡}{\equiv}
 \nuc{⟨}{\langle}
 \nuc{⟩}{\rangle}
@@ -101,4 +101,28 @@ _ : 3 ^ 4 ≡ 81
 _ = refl
 \end{code}
 
+\subsection{\texttt{∸}}
+Plus tard déso.
+
+\subsection{Exercice \texttt{Bin}}
+\begin{code}
+data Bin : Set where
+  ⟨⟩ : Bin
+  _O : Bin → Bin
+  _I : Bin → Bin
+
+inc : Bin -> Bin
+inc ⟨⟩ = ⟨⟩ I
+inc (b O) = b I
+inc (b I) = inc b O
+
+to : ℕ → Bin
+to zero = ⟨⟩ O
+to (suc n) = inc (to n)
+
+from : Bin → ℕ
+from ⟨⟩ = zero
+from (b O) = 2 * from b
+from (b I) = 2 * from b + 1
+\end{code}
 \end{document}
