@@ -4,14 +4,16 @@
 \usepackage{csquotes}
 \usepackage{agda}
 \usepackage{amssymb}
+\usepackage{mnsymbol}
 
 \usepackage{newunicodechar}    % Pour \qed.
 \newcommand{\nuc}[2]{\newunicodechar{#1}{\ensuremath{#2}}}
-\nuc{ℕ}{\Bbb N}
+\nuc{ℕ}{\mathbb N}
 \nuc{≡}{\equiv}
 \nuc{⟨}{\langle}
 \nuc{⟩}{\rangle}
 \nuc{∎}{\blacksquare}
+\nuc{∸}{\dotminus}
 
 \begin{document}
 
@@ -21,6 +23,8 @@
 Salut Victor.
 Là on va importer les naturels.
 \begin{code}
+module nat where
+
 open import Data.Nat using (ℕ; zero; suc; _+_; _*_)
 \end{code}
 Encore bonjour.
