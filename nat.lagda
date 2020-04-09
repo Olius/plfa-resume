@@ -44,7 +44,7 @@ open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _∎)
 \end{code}
 Maintenant le \enquote{calcul} de $3 + 4$.
 \begin{code}
-_ : 3 + 4 ≡ 7 %je ne comprends pas cette ligne
+_ : 3 + 4 ≡ 7 -- je ne comprends pas cette ligne
 _ =
   begin
     3 + 4
