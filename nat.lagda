@@ -23,6 +23,7 @@ Là on va importer les naturels.
 \begin{code}
 open import Data.Nat using (ℕ; zero; suc; _+_; _*_)
 \end{code}
+Vic: On définit avec des "_" pour écrire a+b au lieu d'écrire +(a(b)) ?
 Encore bonjour.
 Voici du code;
 en particulier celui du nombre bien connu \(7\).
@@ -39,7 +40,7 @@ open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _∎)
 \end{code}
 Maintenant le \enquote{calcul} de $3 + 4$.
 \begin{code}
-_ : 3 + 4 ≡ 7
+_ : 3 + 4 ≡ 7 %je ne comprends pas cette ligne
 _ =
   begin
     3 + 4
