@@ -27,7 +27,7 @@ module nat where
 
 open import Data.Nat using (ℕ; zero; suc; _+_; _*_)
 \end{code}
-Vic: On définit avec des "_" pour écrire a+b au lieu d'écrire +(a(b)) ?
+Vic: On définit avec des "\_" pour écrire a+b au lieu d'écrire \_+\_ a b ?
 Encore bonjour.
 Voici du code;
 en particulier celui du nombre bien connu \(7\).
