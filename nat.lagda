@@ -27,10 +27,6 @@ Vic: On définit avec des "_" pour écrire a+b au lieu d'écrire +(a(b)) ?
 Encore bonjour.
 Voici du code;
 en particulier celui du nombre bien connu \(7\).
-\begin{code}
-sept = suc (suc (suc (suc (suc (suc (suc zero))))))
-\end{code}
-
 \subsection{Exercice \texttt{+-example}}
 On importe le bordel pour les égalités propositionnelles.
 \begin{code}
@@ -40,7 +36,7 @@ open Eq.≡-Reasoning using (begin_; _≡⟨⟩_; _∎)
 \end{code}
 Maintenant le \enquote{calcul} de $3 + 4$.
 \begin{code}
-_ : 3 + 4 ≡ 7 %je ne comprends pas cette ligne
+_ : 3 + 4 ≡ 7 -- je ne comprends pas cette ligne
 _ =
   begin
     3 + 4
